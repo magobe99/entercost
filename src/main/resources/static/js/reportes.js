@@ -5,7 +5,7 @@ function reporte(){
 	var tip0 = document.getElementById("tipo").value;
 	
 	
-	window.open("http://localhost:8080/report/ventas/download?fechaInicio="+fecha1+"&fechaFin="+fecha2+"&tipo="+tip0);
+	window.open("/report/ventas/download?fechaInicio="+fecha1+"&fechaFin="+fecha2+"&tipo="+tip0);
 	
 }
 
@@ -15,7 +15,7 @@ function inventario(){
 	var tip0 = "PDF";
 	
 	
-	window.open("http://localhost:8080/report/ventas/download2?tipo="+tip0);
+	window.open("/report/ventas/download2?tipo="+tip0);
 	
 }
 
@@ -26,7 +26,7 @@ function reporte3(){
 	var tip0 = document.getElementById("tipo").value;
 	
 	
-	window.open("http://localhost:8080/report/ventas/download3?fechainicio="+fecha1+"&fechafin="+fecha2+"&tipo="+tip0);
+	window.open("/report/ventas/download3?fechainicio="+fecha1+"&fechafin="+fecha2+"&tipo="+tip0);
 	
 }
 
@@ -37,7 +37,7 @@ function reporte4(){
 	var tip0 = document.getElementById("tipo").value;
 	
 	
-	window.open("http://localhost:8080/report/ventas/download4?fechainicio="+fecha1+"&fechafin="+fecha2+"&tipo="+tip0);
+	window.open("/report/ventas/download4?fechainicio="+fecha1+"&fechafin="+fecha2+"&tipo="+tip0);
 	
 }
 
