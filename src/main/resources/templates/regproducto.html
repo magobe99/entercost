@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- basic -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- mobile metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- site metas -->
+  <title>Administrador</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- site icon -->
+  <link rel="icon" href="img/entercost.png" type="image/png" />
+  <!-- bootstrap css -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <!-- site css -->
+  <link rel="stylesheet" th:href="@{/css/jk.css}" />
+  <!-- responsive css -->
+  <link rel="stylesheet" th:href="@{/css/responsive.css}" />
+  <!-- color css -->
+  <link rel="stylesheet" th:href="@{/css/colors_2.css}" />
+  <!-- select bootstrap -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap-select.css}" />
+  <!-- scrollbar css -->
+  <link rel="stylesheet" th:href="@{/css/perfect-scrollbar.css}" />
+  <!-- custom css -->
+  <link rel="stylesheet" th:href="@{/css/custom.css}" />
+
+  <link rel="stylesheet" th:href="@{/css/estiloform_regproducto.css}">
+
+</head>
+
+<body class="dashboard dashboard_1">
+  <div class="full_container">
+    <div class="inner_container">
+      <!-- Sidebar  -->
+      <nav id="sidebar">
+        <div class="sidebar_blog_1">
+          <div class="sidebar-header">
+            <div class="logo_section">
+              <a href="index.html"></a>
+            </div>
+          </div>
+          <div class="sidebar_user_info">
+            <div class="icon_setting"></div>
+            <div class="user_profle_side">
+              <div class="user_img"><img class="img-responsive" src="img/user_img.jpg" alt="#" /></div>
+              <div class="user_info">
+                <h6>Juan Gonzales</h6>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar_blog_2">
+          <h4>Producción</h4>
+          <ul class="list-unstyled components">
+
+            <li><a th:href="@{/regproducto}"><i class="fa fa-map red_color2"></i> <span>Registrar producto</span></a></li>
+            <li><a th:href="@{/regproyecto}"><i class="fa fa-map red_color2"></i> <span>Registrar proyecto</span></a></li>
+            <li><a th:href="@{/regpedido}"><i class="fa fa-map red_color2"></i> <span>Registrar pedido</span></a></li>
+            <li><a th:href="@{/tablaproducto}"><i class="fa fa-table purple_color2"></i> <span>Consultar producto</span></a></li>
+            <li><a th:href="@{/tablaproyecto}"><i class="fa fa-table purple_color2"></i> <span>Consultar proyecto</span></a></li>
+            <li><a th:href="@{/tablapedido}"><i class="fa fa-table purple_color2"></i> <span>Consultar pedido</span></a></li>
+            <li><a th:href="@{/tablausuario}"><i class="fa fa-table purple_color2"></i> <span>Consultar Usuarios</span></a></li>
+            
+
+
+
+          </ul>
+        </div>
+      </nav>
+      <!-- end sidebar -->
+      <!-- right content -->
+      <div id="content">
+        <!-- topbar -->
+        <div class="topbar">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="full">
+
+              <div class="logo_section">
+                <a href="index.html"><img class="img-responsive" src="img/entercost.png" alt="#" /></a>
+              </div>
+              <div class="right_topbar">
+                <div class="icon_info">
+
+                  <ul class="user_profile_dd">
+                    <li>
+                     <div> <a class="dropdown-toggle" th:href="@{/logout}"><span>Cerrar sesión</span> <i class="fa fa-sign-out"></i></a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <form th:action="@{/guardarProducto}" class="image-fondo" method="POST" th:object="${producto}">
+
+          <div class="formulario">
+            <h1>ㅤㅤREGISTRAR PRODUCTOㅤㅤ</h1>
+
+            <div class="label">
+              <label form="nombreproducto">NOMBRE DEL PRODUCTO</label>
+            </div>
+            <div>
+              <input type="text" placeholder="Ingrese el nombre del producto "  class="form-control"   th:field="*{nombreproducto}">
+              <div class="form-text text-danger" th:if="${#fields.hasErrors('nombreproducto')}" th:errors="*{nombreproducto}"></div>
+            </div>
+
+
+            <div class="label">
+              <label for="fechaproducto">FECHA PRODUCTO</label>
+            </div>
+            <div>
+              <input type="date" placeholder="Ingrese la fecha del producto: 00/00/0000"  class="form-control" th:errorClass="is-invalid"   th:field="*{fechaproducto}">
+            <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaproducto')}" th:errors="*{fechaproducto}"></div>
+            </div>
+
+            <div class="label">
+              <label for="precioproducto">PRECIO DEL PRODUCTO</label>
+            </div>
+            <div>
+              <input type="text" placeholder="Ingrese el precio del producto"   class="form-control"  th:field="*{precioproducto}">
+              <div class="form-text text-danger" th:if="${#fields.hasErrors('precioproducto')}" th:errors="*{precioproducto}"></div>
+            </div>
+
+
+            <div class="label">
+              <label form="categoriaproducto">CATEGORIA DEL PRODUCTO</label>
+            </div>
+            <div>
+              <input type="text" placeholder="Ingrese la categoria a la que pertenece el producto" class="form-control"   th:field="*{categoriaproducto}">
+              <div class="form-text text-danger" th:if="${#fields.hasErrors('categoriaproducto')}" th:errors="*{categoriaproducto}"></div>
+            </div>
+            
+            <div class="label">
+                  <label  class="form-label">Proyecto:</label>
+                     <select th:field="*{proyecto}" class="form-control" require>
+                      <th:block th:each="proyecto : ${listProyecto}">
+                      <option th:text="${proyecto.nombreproyecto}" th:value="${proyecto.id}"></option>
+                      </th:block>
+                       </select>
+                     </div>
+            
+            <div class="boton">
+              <input type="submit" value="REGISTRAR" class="botonc"  id="registrar">
+            </div>
+
+            <div class="boton">
+              <input type="reset" value="CANCELAR" class="botonc">
+            </div>
+
+
+
+        </form>
+      </div>
+      </form>
+
+
+      <div class="container">
+
+        <!-- Trigger the modal with a button -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+
+              <div class="modal-body">
+                <p>Producto registrado.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <!-- end graph -->
+
+      <!-- end progress bar -->
+    </div>
+
+  </div>
+  <!-- footer -->
+
+  </div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <!-- wow animation -->
+  <script src="js/animate.js"></script>
+  <!-- select country -->
+  <script src="js/bootstrap-select.js"></script>
+  <!-- owl carousel -->
+  <script src="js/owl.carousel.js"></script>
+  <!-- chart js -->
+  <script src="js/Chart.min.js"></script>
+  <script src="js/Chart.bundle.min.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/analyser.js"></script>
+  <!-- nice scrollbar -->
+  <script src="js/perfect-scrollbar.min.js"></script>
+  <script>
+    var ps = new PerfectScrollbar('#sidebar');
+  </script>
+  <!-- custom js -->
+  <script src="js/chart_custom_style1.js"></script>
+  <script src="js/custom.js"></script>
+  
+  <script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

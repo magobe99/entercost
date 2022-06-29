@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>formulario</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+	<link rel="icon" href="img/entercost.png" type="image/png" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/estiloform_crearcuenta.css}"/>
+
+</head>
+<body>
+	
+<!--	<div class="alert alert-info alert-dismissable" th:if="${guardar != null}">
+               			<label th:text="${guardar}"></label>
+               			<button type="button" class="close" data-dismiss="alert">&times;</button>
+               		</div>-->
+
+  <form th:action="@{}" method="POST" th:object="${usuario}">
+
+    <div class="formulario">
+      <h2>ㅤㅤㅤCREAR CUENTAㅤㅤㅤ</h2>
+
+      <div class="col-9">
+        <label for="nombreusuario">NOMBRE:</label>
+      </div>
+      <div class="col-12">
+        <input type="text" placeholder="Ingrese su nombre"  class="inputc" th:field="*{nombreusuario}">
+        <div class="form-text text-danger" th:if="${#fields.hasErrors('nombreusuario')}" th:errors="*{nombreusuario}"></div>
+      </div>
+
+
+
+      <div class="col-9">
+        <label form="apellido">APELLIDO:</label>
+      </div>
+      <div class="col-12">
+        <input type="text" placeholder="Ingrese su apellido"  class="inputc" th:field="*{apellido}">
+        <div class="form-text text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+      </div>
+      
+      <div class="col-9">
+        <label for="fechanacimiento">FECHA NACIMIENTO</label>
+      </div>
+      <div class="col-12">
+        <input type="date" placeholder="Ingrese su fecha de nacimiento"  class="inputc" th:field="*{fechanacimiento}">
+        <div class="form-text text-danger" th:if="${#fields.hasErrors('fechanacimiento')}" th:errors="*{fechanacimiento}"></div>
+      </div>
+
+
+      <div class="col-9">
+        <label form="edadusuario">EDAD:</label>
+      </div>
+      <div class="col-12">
+        <input type="text" placeholder="Ingrese su edad actual"  class="inputc" th:field="*{edadusuario}">
+        <div class="form-text text-danger" th:if="${#fields.hasErrors('edadusuario')}" th:errors="*{edadusuario}"></div>
+      </div>
+
+
+      <div class="col-9">
+        <label for="telefonousuario">TELEFONO</label>
+      </div>
+      <div class="col-12">
+        <input type="text" placeholder="Ingrese su telefono"  class="inputc" th:field="*{telefonousuario}">
+        <div class="form-text text-danger" th:if="${#fields.hasErrors('telefonousuario')}" th:errors="*{telefonousuario}"></div>
+      </div>
+      
+      <div class="col-9">
+        <label for="email">CORREO</label>
+      </div>
+      <div class="col-12">
+        <input type="email" placeholder="Ingrese su correo"  class="inputc" th:field="*{email}">
+        <div class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+      </div>
+
+      <div class="col-9">
+        <label for="direccionusuario">DIRECCION</label>
+      </div>
+      <div class="col-12">
+        <input type="text" placeholder="Ingrese su direccion"  class="inputc" th:field="*{direccionusuario}">
+        <div class="form-text text-danger" th:if="${#fields.hasErrors('direccionusuario')}" th:errors="*{direccionusuario}"></div>
+      </div>
+     
+      <div class="col-9">
+        <label for="clave">CONTRASEÑA</label>
+      </div>
+      <div class="col-12">
+        <input type="password" placeholder="Ingrese su contraseña"  class="inputc" th:field="*{clave}">
+        <div class="form-text text-danger" th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}"></div>
+      </div>
+
+		 <div class="label">
+                  <label  class="form-label">Rol</label>
+                     <select th:field="*{roles}" class="form-control" require>
+                      <th:block th:each="rol : ${listRol}">
+                      <option th:text="${rol.nombrerol}" th:value="${rol.id}"></option>
+                      </th:block>
+                       </select>
+                     </div>
+
+      
+
+      <div class="boton">
+        <input type="submit" value="REGISTRARSE" class="botonc">
+      </div>
+
+      <div class="boton">
+        <input type="reset" value="CANCELAR" class="botonc">
+      </div>
+
+      <div class="link">
+        <div><a th:href="@{/iniciar}">¿Ya tienes cuenta? Iniciar sesion</a></div>
+
+
+      </div>
+
+
+    </div>
+  </form>
+
+
+
+
+
+
+
+</body>
+</html>

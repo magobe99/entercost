@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Administrador</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icon -->
+      <link rel="icon" href="img/entercost.png" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+      <!-- site css -->
+      <link rel="stylesheet" th:href="@{/css/jk.css}" />
+      <!-- responsive css -->
+      <link rel="stylesheet" th:href="@{/css/responsive.css}" />
+      <!-- color css -->
+      <link rel="stylesheet" th:href="@{/css/colors_2.css}" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" th:href="@{/css/bootstrap-select.css}" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" th:href="@{/css/perfect-scrollbar.css}" />
+      <!-- custom css -->
+      <link rel="stylesheet" th:href="@{/css/custom.css}" />
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body class="dashboard dashboard_1">
+      <div class="full_container">
+         <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+               <div class="sidebar_blog_1">
+                  <div class="sidebar-header">
+                     <div class="logo_section">
+                        <a href="index.html"></a>
+                     </div>
+                  </div>
+                  <div class="sidebar_user_info">
+                     <div class="icon_settin"></div>
+                     <div class="user_profle_side">
+                        <div class="user_img"><img class="img-responsive" src="img/user_img.jpg" alt="#" /></div>
+                        <div class="user_info">
+                           <h6>Juan Gonzales</h6>
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sidebar_blog_2">
+                  <h4>Producción</h4>
+                  <ul class="list-unstyled components">
+
+                     <li><a th:href="@{/regproducto}"><i class="fa fa-map red_color2"></i> <span>Registrar producto</span></a></li>
+                     <li><a th:href="@{/regproyecto}"><i class="fa fa-map red_color2"></i> <span>Registrar proyecto</span></a></li>
+                     <li><a th:href="@{/regpedido}"><i class="fa fa-map red_color2"></i> <span>Registrar pedido</span></a></li>
+                     <li><a th:href="@{/tablaproducto}"><i class="fa fa-table purple_color2"></i> <span>Consultar producto</span></a></li>
+                     <li><a th:href="@{/tablaproyecto}"><i class="fa fa-table purple_color2"></i> <span>Consultar proyecto</span></a></li>
+                     <li><a th:href="@{/tablapedido}"><i class="fa fa-table purple_color2"></i> <span>Consultar pedido</span></a></li>
+                     <li><a th:href="@{/tablausuario}"><i class="fa fa-table purple_color2"></i> <span>Consultar Usuarios</span></a></li>
+                     <li><a th:href="@{/correo}"><i class="fa fa-table purple_color2"></i> <span>envia correos masivos</span></a></li>
+                     <li><a href="grafico.html"><i class="fa fa-table purple_color2"></i> <span>Grafico</span></a></li>
+                      
+
+
+
+                  </ul>
+               </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+                        
+                        <div class="logo_section">
+                           <img class="img-responsive" src="img/entercost.png" alt="#" />
+                        </div>
+                        <div class="right_topbar">
+                           <div class="icon_info">
+
+                              <ul class="user_profile_dd">
+                                 <li>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">Administrador</span></a>
+                                    <div class="dropdown-menu">
+
+                                       <a class="dropdown-item" th:href="@{/}"><span>Cerrar sesión</span> <i class="fa fa-sign-out"></i></a>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <!--  -->
+               <!-- dashboard inner -->
+               
+               <!--<form method="POST" th:action="@{/sendEmailUsuario}" id="emailForm" class="container">
+            <h1 style="text-align: center;">Enviar correo masivo</h1>
+
+            <div class="form-group">
+                <label>Correos:</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon">@ </div>
+                    <input type="text" class="form-control" id="correo" name="to" placeholder="Correo electrónico"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Asunto:</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon"><i class="fa fa-fw fa-envelope-open" aria-hidden="true"></i></div>
+                    <input type="text" class="form-control" name="subject" id="asunto" placeholder="Asunto"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Mensaje:</label>
+                <textarea class="form-control" rows="4" name="body" id="mensaje"></textarea>
+            </div>
+            <br>
+            <div style="margin-bottom: 10px">
+                <button type="submit" class="btn btn-danger" onclick="enviosUsuario()">Enviar</button>
+            </div>
+        </form>
+    </div>
+    <script src="../js/validar-correo-user.js"></script>-->
+    
+    <!-- formularios -->
+    
+    <div class="row">
+					<div class="col-lg-6 mt-5">
+						<div
+							th:classappend="'alert-' + (${clase != null} ? ${clase} : info)"
+							th:if="${mensaje != null}" th:text="${mensaje}"
+							class="alert text-center"></div>
+						<div class="card shadow-lg p-0 mb-3 mt-1 bg-white">
+							<div class="card-header bg-dark text-center mb-3"
+								style="font-size: 25px; color: white;">
+								<i class="fa-solid fa-paper-plane"></i> CONTACTO MASIVO -
+								USUARIOS
+							</div>
+							<div class="card-body">
+								<form th:action="@{/contact}" method="post"
+									class="needs-validation"
+									style="max-width: 600px; margin: 0 auto;"
+									enctype="multipart/form-data" novalidate>
+									<div class="form-group row">
+										<input type="text" class="form-control mb-2" name="fullname"
+											placeholder="Nombre Completo" required>
+										<div class="invalid-feedback">campo requerido</div>
+									</div>
+									<div class="form-group row">
+										<input type="email" class="form-control mb-2" name="email"
+											placeholder="Correo de contacto" required>
+										<div class="invalid-feedback">campo requerido</div>
+									</div>
+									<div class="form-group row">
+										<input type="text" class="form-control mb-2" name="subject"
+											placeholder="Asunto" required>
+										<div class="invalid-feedback">campo requerido</div>
+									</div>
+									<div class="form-group row">
+										<textarea rows="5" class="form-control mb-4" name="content"
+											placeholder="Mensaje" required></textarea>
+										<div class="invalid-feedback">campo requerido</div>
+									</div>
+									<div class="form-group row">
+
+										<input type="file" class="form-control" name="attachment" />
+									</div>
+									<div class="text-center mt-4">
+										<button class="btn btn-primary" type="reset">Limpiar</button>
+										<input type="submit" value="Enviar" class="btn btn-primary">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 mt-5">
+						<div
+							th:classappend="'alert-' + (${clase != null} ? ${clase} : info)"
+							th:if="${mensaje != null}" th:text="${mensaje}"
+							class="alert text-center"></div>
+						<div class="card shadow-lg p-0 mb-3 mt-1 bg-white">
+							<div class="card-header bg-dark text-center mb-3"
+								style="font-size: 25px; color: white;">
+								<i class="fa-solid fa-paper-plane"></i> CONTACTO ESPECIALIZADO -
+								USUARIOS
+							</div>
+							<div class="card-body">
+								<form method="POST" th:action="@{/sendEmailUsuario}" id="emailForm" class="container">
+        
+        
+            <div class="form-group ">
+                <label>Correos</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon"></div>
+                    <input type="text" class="form-control" id="correo" name="to" placeholder="Correos electrónicos" required/>
+                </div>
+            </div>
+            
+            
+            <div class="form-group">
+                <label>Asunto</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon"><i class="fa fa-fw fa-user" aria-hidden="true"></i></div>
+                    <input type="text" class="form-control"  name="subject" id="asunto" placeholder="Asunto"/>
+                </div>
+            </div>
+            
+            
+            <div class="form-group">
+                <label>Mensaje</label>
+                <textarea class="form-control" rows="4" name="body" id="mensaje"></textarea>
+            </div>
+            
+            
+            <div style="margin-bottom: 10px">
+                <input type="submit" class="btn btn-danger" onclick="enviosUsuario()" required></input>
+            </div>
+        </form>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="row">
+					
+				</div>
+<br>
+<br>
+<br>
+<br>
+  
+
+
+                     <!-- end graph -->
+
+                        <!-- end progress bar -->
+                     </div>
+
+                  </div>
+                  <!-- footer -->
+
+               </div>
+               <!-- end dashboard inner -->
+            </div>
+         </div>
+      </div>
+      <!-- jQuery -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      
+      <!-- wow animation -->
+      <script src="js/animate.js"></script>
+      <!-- select country -->
+      <script src="js/bootstrap-select.js"></script>
+      <script src="js/jquery-3.3.1.min.js"></script>
+      <!-- owl carousel -->
+      <script src="js/owl.carousel.js"></script>
+      <!-- chart js -->
+      <script src="js/Chart.min.js"></script>
+      <script src="js/Chart.bundle.min.js"></script>
+      <script src="js/utils.js"></script>
+      <script src="js/analyser.js"></script>
+      <!-- nice scrollbar -->
+      <script src="js/perfect-scrollbar.min.js"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="js/chart_custom_style1.js"></script>
+      <script src="js/custom.js"></script>
+   </body>
+</html>
+
+

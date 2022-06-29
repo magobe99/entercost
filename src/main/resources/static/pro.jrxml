@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.0.final using JasperReports Library version 6.19.0-646c68931cebf1a58bc65c4359d1f0ca223c5e94  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pro" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f515b36e-68f7-4554-b2f0-40f917b612d9">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="correo" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<image>
+				<reportElement x="10" y="10" width="80" height="60" uuid="4d0c8e82-ac33-42bd-a281-fff78592b39b"/>
+				<imageExpression><![CDATA["C:/Users/damh0/Documents/Diseño web ADSI/proyecto/images/entercost.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="230" y="20" width="150" height="50" uuid="d265a975-9f0a-409b-9ab0-2afa34fbc422"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Reporte Proveedor]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="445" y="30" width="100" height="30" uuid="09e1e8d2-5be9-4188-a0cf-83c8081ecbd6"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="49" width="100" height="40" uuid="46ff374d-de6a-4ef4-ad75-a2641062312c"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="49" width="100" height="35" uuid="c3b349a3-a78b-4b3f-bc8f-663eb4ad1dec"/>
+				<text><![CDATA[Nombre proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="51" width="100" height="38" uuid="e50ad096-a1d6-41ee-b6f1-0a614004cf88"/>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="49" width="100" height="40" uuid="5249d85c-8f94-4edf-88d3-570caa5a7be5"/>
+				<text><![CDATA[Correo Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="50" width="100" height="39" uuid="30a27f24-58aa-41fb-8779-552ffe999f97"/>
+				<text><![CDATA[Dirección proveedor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="70" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="b1f4c2b9-d320-4018-a2b4-fcac1d2f2b22"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="30" uuid="ce979294-75e4-4d48-9220-bad35fe03028"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="30" uuid="58f4ac17-ddd7-4b6c-bc49-cf734b8573b2"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="30" uuid="74083960-5623-4662-ab5e-8e95566434bf"/>
+				<textFieldExpression><![CDATA[$F{correo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="100" height="30" uuid="dc4da3e8-4346-448e-a6e9-18d1806ce81c"/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

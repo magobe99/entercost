@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+*{
+  margin: 0;
+  font-family: 'montserrat', sans-serif;
+}
+
+body{
+  background: url("../img/fondo.png");
+  background-size: cover;
+}
+
+.formulario{
+  background-color: rgb(190, 190, 190, 0.5);
+  position: absolute;
+  padding: 25px 30px;
+  top: 25%;
+  left: 35%;  
+  border-radius: 20px;
+}
+
+.formulario h1{
+  text-align: center;
+  border-radius: 10px;
+}
+
+.label{
+  padding: 15px 0;
+  font-weight: bold;
+  border-radius: 10px;
+
+}
+
+.label{
+  padding: 5px 0;
+  font-weight: bold;
+  border-radius: 10px;
+
+
+
+
+}
+
+input{
+  padding-bottom: 10px;
+
+}
+
+.inputc{
+  width: 100%;
+  border-radius: 5px;
+}
+
+.boton{
+  padding: 10px 15px;
+}
+
+.botonc{
+  width: 100%;
+  padding: 10px;
+  background-color:#c1121f;
+  color: #fff;
+  border-radius: 10px;
+
+}
+
+.botonc:hover{
+  background-color:#000000;
+
+}
+.link{
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;/* UNO QUEDA A LA DERECHA Y EL OTRO A LA IZQUIERDA */  
+}
+
+
+.link a{
+  text-decoration: none;
+  color: #000;
+   
+}

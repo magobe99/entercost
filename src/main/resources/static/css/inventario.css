@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+}
+
+header{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 5px solid #fff;
+}
+
+body{
+  background: url("../imge/plata.jpg") ;
+  margin:50;
+  background-size: cover;
+}
+
+header img{
+    width: 50%;
+    height: auto;
+}
+
+header a{
+    text-decoration: none;
+    color: #000000;
+    padding-right: 10px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 20px;
+}
+
+header a:hover{
+    color: #264653;
+}
+
+main{
+    display: flex;
+}
+
+/* menú de navegación */
+
+nav{
+    background-color: #000000;
+    color: #fff;
+}
+
+nav ul{
+    list-style: none;
+    padding: 0px;
+    color: #fff;
+}
+nav .ma{
+    height: 15%;
+    width: 15%;
+}
+nav ul a{
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 20px;
+    padding: 5px 25px;
+    display: block;
+}
+
+nav ul li a:hover{
+    background-color: #bb262c;
+}
+
+nav h3{
+    padding: 25px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+section{
+    display: flex;
+    align-items: center;
+}
+
+.col{
+    width: 50%;
+    text-align: center;
+}
+/* columna derecha*/
+.foto img{
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.infoperfil h3{
+    font-family: 'Nanum Gothic', sans-serif;
+}
+.infoperfil p{
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+/* columna izquierda*/
+
+.artseccion1{
+    background-color: #fec89a;
+    width: 80%;
+    padding: 15px 0px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 3px darkgray;
+}
+
+.artseccion2{
+  background-color: #a1c349;
+  width: 80%;
+  padding: 15px 0px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 3px darkgray;
+}
+
+.artseccion3{
+  background-color: #8093f1;
+  width: 80%;
+  padding: 15px 0px;
+  border-radius: 10px;
+  box-shadow: 0px 3px darkgray;
+}

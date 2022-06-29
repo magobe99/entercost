@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Caja</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icon -->
+      <link rel="icon" href="img/entercost.png" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+      <!-- site css -->
+      <link rel="stylesheet" th:href="@{/css/jk.css}" />
+      <!-- responsive css -->
+      <link rel="stylesheet" th:href="@{/css/responsive.css}" />
+      <!-- color css -->
+      <link rel="stylesheet" th:href="@{/css/colors.css}" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" th:href="@{/css/bootstrap-select.css}" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" th:href="@{/css/perfect-scrollbar.css}" />
+      <!-- custom css -->
+      <link rel="stylesheet" th:href="@{/css/custom.css}" />
+
+      <link rel="stylesheet" th:href="@{/css/estiloform_regpagos.css}">
+
+
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body class="dashboard dashboard_1">
+      <div class="full_container">
+         <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+               <div class="sidebar_blog_1">
+                  <div class="sidebar-header">
+                     <div class="logo_section">
+                        <a href="index.html"></a>
+                     </div>
+                  </div>
+                  <div class="sidebar_user_info">
+                     <div class="icon_setting"></div>
+                     <div class="user_profle_side">
+
+                        <div class="user_info">
+                           <h6>Contadora</h6>
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sidebar_blog_2">
+                  <h4>Caja</h4>
+                  <ul class="list-unstyled components">
+
+                     <li><a th:href="@{/regbalance}"><i class="fa fa-map red_color2"></i> <span>Registrar Balance</span></a></li>
+                     <li><a th:href="@{/regpago}"><i class="fa fa-map red_color2"></i> <span>Registrar Pagos</span></a></li>
+                     <li><a th:href="@{/tablabalance}"><i class="fa fa-table purple_color2"></i> <span>Consultar Balance</span></a></li>
+                     <li><a th:href="@{/tablapagos}"><i class="fa fa-table purple_color2"></i> <span>Consultar Pagos</span></a></li>
+                     
+
+
+
+                  </ul>
+               </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+
+                        <div class="logo_section">
+                           <a href="index.html"><img class="img-responsive" src="img/entercost.png" alt="#" /></a>
+                        </div>
+                        <div class="right_topbar">
+                           <div class="icon_info">
+
+                              <ul class="user_profile_dd">
+                                 <li>
+                                    <a class="dropdown-toggle" th:href="@{/logout}"><span>Cerrar sesión</span> <i class="fa fa-sign-out"></i></a>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <form th:action="@{/editarPago}" method="POST" th:object="${pago}">
+
+                 <div class="formulario">
+                   <h1>ㅤㅤREGISTRAR PAGOSㅤㅤ</h1>
+
+                   <div class="label">
+                     <label for="name">ID PAGO</label>
+                   </div>
+                   <div>
+                     <input type="text" placeholder="Ingrese el id del pago" required class="form-control" th:field="*{idpago}">
+                   </div>
+
+                   <div class="label">
+                     <label for="name">PRECIO DEL PAGO</label>
+                   </div>
+                   <div>
+                     <input type="text" placeholder="Ingrese el precio del pago" required class="form-control" th:field="*{preciopago}">
+                   </div>
+
+                   <div class="label">
+                     <label for="name">FECHA DEL PAGO</label>
+                   </div>
+                   <div>
+                     <input type="date" placeholder="Ingrese la fecha del pago: 00/00/0000" required class="form-control" th:field="*{fechapago}">
+                   </div>
+                   
+                   <div class="label">
+                     <label for="name">ESTADO PAGO</label>
+                   </div>
+                   <div>
+                     <input type="checkbox" th:field="*{estadopago}" th:value="*{estadopago}"/>
+                   </div>
+                   
+                    <div class="label">
+                  <label  class="form-label">Compra:</label>
+                     <select th:field="*{compra}" class="form-control" require>
+                      <th:block th:each="compra: ${listCompra}">
+                      <option th:text="${compra.nombrecompra}" th:value="${compra.id}"></option>
+                      </th:block>
+                       </select>
+                     </div>
+                     
+                     
+                     <div class="label">
+                  <label  class="form-label">Usuario:</label>
+                     <select th:field="*{usuario}" class="form-control" require>
+                      <th:block th:each="usuario: ${listUsuario}">
+                      <option th:text="${usuario.nombre}" th:value="${usuario.id}"></option>
+                      </th:block>
+                       </select>
+                     </div>
+                   
+                     
+                                            
+
+                   <div class="boton">
+                     <input type="submit" value="REGISTRAR" class="botonc">
+                   </div>
+
+                   <div class="boton">
+                     <input type="submit" value="CANCELAR" class="botonc">
+                   </div>
+
+
+
+
+                 </div>
+               </form>
+                     </div>
+
+                  </div>
+                  <!-- footer -->
+
+               </div>
+               <!-- end dashboard inner -->
+            </div>
+         </div>
+      </div>
+      <!-- jQuery -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- wow animation -->
+      <script src="js/animate.js"></script>
+      <!-- select country -->
+      <script src="js/bootstrap-select.js"></script>
+      <!-- owl carousel -->
+      <script src="js/owl.carousel.js"></script>
+      <!-- chart js -->
+      <script src="js/Chart.min.js"></script>
+      <script src="js/Chart.bundle.min.js"></script>
+      <script src="js/utils.js"></script>
+      <script src="js/analyser.js"></script>
+      <!-- nice scrollbar -->
+      <script src="js/perfect-scrollbar.min.js"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="js/chart_custom_style1.js"></script>
+      <script src="js/custom.js"></script>
+   </body>
+</html>

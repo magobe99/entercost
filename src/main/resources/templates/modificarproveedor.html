@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Inventario</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icon -->
+      <link rel="icon" href="img/entercost.png" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+      <!-- site css -->
+      <link rel="stylesheet" th:href="@{/css/jk.css}" />
+      <!-- responsive css -->
+      <link rel="stylesheet" th:href="@{/css/responsive.css}" />
+      <!-- color css -->
+      <link rel="stylesheet" th:href="@{/css/colors.css}" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" th:href="@{/css/bootstrap-select.css}" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" th:href="@{/css/perfect-scrollbar.css}" />
+      <!-- custom css -->
+      <link rel="stylesheet" th:href="@{/css/custom.css}" />
+
+      <link rel="stylesheet" th:href="@{/css/estiloform_regproveedor.css}">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body class="dashboard dashboard_1">
+      <div class="full_container">
+         <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+               <div class="sidebar_blog_1">
+                  <div class="sidebar-header">
+                     <div class="logo_section">
+                        <a href="index.html"></a>
+                     </div>
+                  </div>
+                  <div class="sidebar_user_info">
+                     <div class="icon_setting"></div>
+                     <div class="user_profle_side">
+                        <div class="user_img"><img class="img-responsive" src="img/rol_3.jpg" alt="#" /></div>
+                        <div class="user_info">
+                           <h6>Angie Hernandez</h6>
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sidebar_blog_2">
+                  <h4>Inventario</h4>
+                  <ul class="list-unstyled components">
+
+                     <li><a th:href="@{/regmaterial}"><i class="fa fa-map red_color2"></i> <span>Registrar Inventario</span></a></li>
+                     <li><a th:href="@{/regproveedor}"><i class="fa fa-map red_color2"></i> <span>Registrar proveedor</span></a></li>
+
+                     <li><a th:href="@{/tablainventario}"><i class="fa fa-table purple_color2"></i> <span>Consultar Inventario</span></a></li>
+                     <li><a th:href="@{/tablaproveedor}"><i class="fa fa-table purple_color2"></i> <span>Consultar proveedor</span></a></li>
+
+
+
+
+
+                  </ul>
+               </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+
+                        <div class="logo_section">
+                           <a href="index.html"><img class="img-responsive" src="img/entercost.png" alt="#" /></a>
+                        </div>
+                        <div class="right_topbar">
+                           <div class="icon_info">
+
+                              <ul class="user_profile_dd">
+                                 <li>
+                                   <div> <a class="dropdown-toggle" th:href="@{/logout}"><span>Cerrar sesión</span> <i class="fa fa-sign-out"></i></a>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <form th:action="@{/editarProveedor}" method="POST" th:object="${proveedor}">
+
+                 <div class="formulario">
+                   <h1>ㅤㅤModificar PROVEEDORㅤㅤ</h1>
+
+                   <div class="label">
+                     <label for="name">ID PROVEEDOR</label>
+                   </div>
+                   <div>
+                     <input type="text" placeholder="Ingrese el id del proveedor" required class="form-control" th:field="*{id}">
+                   </div>
+
+                   <div class="label">
+                     <label for="name">NOMBRE PROVEEDOR</label>
+                   </div>
+                   <div>
+                     <input type="text" placeholder="Ingrese el nombre completo del proveedor" required class="form-control" th:field="*{nombre}">
+                   </div>
+
+                   <div class="label">
+                     <label for="name">TELEFONO DEL PROVEEDOR</label>
+                   </div>
+                   <div>
+                     <input type="text" placeholder="Ingrese el telefono del proveedor" required class="form-control" th:field="*{telefono}">
+                   </div>
+
+                   <div class="label">
+                     <label for="email">EMAIL DEL PROVEEDOR</label>
+                   </div>
+                   <div>
+                     <input type="email" placeholder="Ingrese el correo del proveedor" required class="form-control" th:field="*{correo}">
+                   </div>
+
+                   <div class="label">
+                     <label for="name">DIRECCION DEL PROVEEDOR</label>
+                   </div>
+                   <div>
+                     <input type="text" placeholder="Ingrese la direccion del proveedor" required class="form-control" th:field="*{direccion}">
+                   </div>
+
+
+                   <div class="boton">
+                     <input type="submit" value="REGISTRAR" class="botonc">
+                   </div>
+
+                   <div class="boton">
+                     <input type="reset" value="CANCELAR" class="botonc">
+                   </div>
+
+
+
+
+                 </div>
+               </form>
+                     </div>
+
+                  </div>
+                  <!-- footer -->
+
+               </div>
+               <!-- end dashboard inner -->
+            </div>
+         </div>
+      </div>
+      <!-- jQuery -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- wow animation -->
+      <script src="js/animate.js"></script>
+      <!-- select country -->
+      <script src="js/bootstrap-select.js"></script>
+      <!-- owl carousel -->
+      <script src="js/owl.carousel.js"></script>
+      <!-- chart js -->
+      <script src="js/Chart.min.js"></script>
+      <script src="js/Chart.bundle.min.js"></script>
+      <script src="js/utils.js"></script>
+      <script src="js/analyser.js"></script>
+      <!-- nice scrollbar -->
+      <script src="js/perfect-scrollbar.min.js"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="js/chart_custom_style1.js"></script>
+      <script src="js/custom.js"></script>
+   </body>
+</html>

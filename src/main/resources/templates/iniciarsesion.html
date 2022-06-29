@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/ini.css}"/>
+    <link rel="icon" href="img/entercost.png" type="image/png" />
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  </head>
+    <title>Registrar usuario</title>
+</head>
+
+<body>
+
+    <div class="container col-3 ">
+        <div class="alert alert-danger alert-dismissable" th:if="${invalidSession != null}">
+            <label th:text="${invalidSession}"></label>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+        <div th:if="${param.error}">
+            <div class="alert alert-danger">Correo o contraseña incorrecto</div>
+        </div>
+        <div th:if="${param.logout}">
+            <div class="alert alert-info">Haz cerrado sesión
+            </div>
+        </div>
+        <form  class="form" method="post">
+
+
+          <div class="form-group text-center">
+            <h1 class="text-light">Iniciar sesión </h1>
+            
+          </div>
+          <div class="iconos">
+            <div class=" text-center border-icon">
+                <i class='bx bxs-user-check bx-flashing' ></i>
+             </div>
+        </div>
+
+            <div class="row justify-content-center pt-5 mt-5 mr-1">
+
+           
+        <div class="col">
+            <label for="username">email</label>
+          <input type="email" class="form-control"  id="username" name="username">
+        </div>
+        
+        <div class="col">
+            <label for="password">password</label>
+          <input type="password" class="form-control"  id="password" name="password">
+        </div>
+      </div>
+      
+      
+        
+        <div class="ab">
+          <button style="margin: 10px" class="btn btn-danger">Iniciar</button> 
+          <button style="margin: 10px" class="btn btn-danger">Cancelar</button> 
+
+     
+        
+        </div>
+
+      </div>
+    </form>
+  </div>
+    </div>
+</body>
+</html>
